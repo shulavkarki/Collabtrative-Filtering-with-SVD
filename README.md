@@ -37,3 +37,5 @@ user_id: 200
 n_items: 10
 
 ``` Output```
+![image](https://user-images.githubusercontent.com/40908371/205041091-c7c15a39-fd62-442a-aeca-844cf553ce14.png)
+
