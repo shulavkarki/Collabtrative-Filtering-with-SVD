@@ -21,7 +21,7 @@ def root():
 
 
 @app.post("/recommend/{user_id}", response_model=dict[int, Response])
-def topN_recommendation(user: User):
+async def topN_recommendation(user:User):
     """
     It takes a user object as input and returns a dictionary of top N movies recommended to the user
 
@@ -40,6 +40,7 @@ def topN_recommendation(user: User):
     pred_ratings = np.array([pred.est for pred in predictions])
     # movie_id_predicted = np.array([pred.iid for pred in predictions])
     sorted_index_movies = np.argsort(-pred_ratings)[: user.n_items]
+    print(len(sorted_index_movies))
     for i, idx in enumerate(sorted_index_movies):
         movie = pd.DataFrame(movies[movies["MovieID"] == idx].iloc[:, :]).to_dict(
             "records"
